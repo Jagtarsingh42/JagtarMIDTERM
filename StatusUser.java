@@ -10,24 +10,11 @@ package status;
  * @author srinivsi
  */
 
-public enum StatusUser {
-    ZERO("REJECTED"),
-    ONE("PENDING"),
-    TWO("PROCESSING"),
-    THREE("APPROVED"),
-    FOUR("COMPLETED");
+public class StatusUser {
 
-    private final String message;
-
-    StatusUser(String message) {
-        this.message = message;
+    public void statusDetail(StatusCode code) {
+        System.out.println("User Status: " + code.getMessage());
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-
 }
 
  

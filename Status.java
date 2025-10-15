@@ -21,24 +21,28 @@ public class Status {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
-   {
-      Scanner in = new Scanner(System.in);
-
-      System.out.println("Available status codes:");
-      for (StatusUser s : StatusUser.values()) {
-         System.out.println(s + " - " + s.getMessage());
-      }
-
-      System.out.println("\nSelect status number (0 for ZERO, 1 for ONE, 2 for TWO, etc.): ");
-      int index = in.nextInt();
-
-      if (index >= 0 && index < StatusUser.values().length) {
-        StatusUser selected = StatusUser.values()[index];
-           StausUser user = new StausUser();
-           user.statusDetail(selected);
-        } else {
-           System.out.println("Invalid selection!");
-   }
-}
     
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Available Status Codes:");
+        int i = 0;
+        for (StatusCode code : StatusCode.values()) {
+            System.out.println(i + " - " + code + " (" + code.getMessage() + ")");
+            i++;
+        }
+
+        System.out.print("\nEnter the status number: ");
+        int index = in.nextInt();
+
+        if (index >= 0 && index < StatusCode.values().length) {
+            StatusCode selected = StatusCode.values()[index];
+            StatusUser user = new StatusUser();
+            user.statusDetail(selected);
+        } else {
+            System.out.println("Invalid selection!");
+        }
+
+        in.close();
+    }
+}

@@ -8,10 +8,21 @@ package status;
  *
  * @author jagta
  */
-public class StatusCode 
-{
-   public void statusDetail(StatusCode code)
-   {
-      System.out.println("User Status: " + code.getMessage());
-   }
+
+public enum StatusCode {
+    ZERO("REJECTED"),
+    ONE("PENDING"),
+    TWO("PROCESSING"),
+    THREE("APPROVED"),
+    FOUR("COMPLETED");
+
+    private final String message;
+
+    StatusCode(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
