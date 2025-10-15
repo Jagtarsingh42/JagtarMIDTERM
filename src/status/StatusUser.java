@@ -10,25 +10,10 @@ package status;
  * @author srinivsi
  */
 
-public enum StatusUser {
-    ZERO("REJECTED"),
-    ONE("PENDING"),
-    TWO("PROCESSING"),
-    THREE("APPROVED"),
-    FOUR("COMPLETED");
+public class StatusUser {
 
-    private final String message;
-
-    StatusUser(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    void statusDetail(StatusUser selected) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void statusDetail(StatusCode code) {
+        System.out.println("User Status: " + code.getMessage());
     }
 }
 
