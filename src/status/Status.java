@@ -21,13 +21,25 @@ public class Status {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
-    {
-    Scanner in =new Scanner(System.in);
-    System.out.println("Enter the user status code (zero,one,two,three) in string");
-    String code = in.next();
-    StausUser t= new StausUser();
-    t.statusDetail(code); 
-    }
     
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Available Status Codes:");
+        for (StatusUser code : StatusUser.values()) {
+            System.out.println(code);
+        }
+
+        System.out.print("\nEnter your status code (e.g., ZERO, ONE, TWO, THREE, FOUR): ");
+
+        int index = in.nextInt();
+
+      if (index >= 0 && index < StatusUser.values().length) {
+         StatusUser selected = StatusUser.values()[index];
+         StatusUser user = new StatusUser();
+         user.statusDetail(selected);
+      } else {
+         System.out.println("Invalid selection!");
+      }
+    }
 }
