@@ -26,20 +26,23 @@ public class Status {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Available Status Codes:");
-        for (StatusUser code : StatusUser.values()) {
-            System.out.println(code);
+        int i = 0;
+        for (StatusCode code : StatusCode.values()) {
+            System.out.println(i + " - " + code + " (" + code.getMessage() + ")");
+            i++;
         }
 
-        System.out.print("\nEnter your status code (e.g., ZERO, ONE, TWO, THREE, FOUR): ");
-
+        System.out.print("\nEnter the status number: ");
         int index = in.nextInt();
 
-      if (index >= 0 && index < StatusUser.values().length) {
-         StatusUser selected = StatusUser.values()[index];
-         StatusUser user = new StatusUser();
-         user.statusDetail(selected);
-      } else {
-         System.out.println("Invalid selection!");
-      }
+        if (index >= 0 && index < StatusCode.values().length) {
+            StatusCode selected = StatusCode.values()[index];
+            StatusUser user = new StatusUser();
+            user.statusDetail(selected);
+        } else {
+            System.out.println("Invalid selection!");
+        }
+
+        in.close();
     }
 }
