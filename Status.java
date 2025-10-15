@@ -1,0 +1,44 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package status;
+
+import java.util.Scanner;
+
+/** This class takes String input from user 
+ * and calls method statusDetail to print the 
+ * status of User-Rejected,Pending,Processing and Approved.
+ * if the input is not given in String, 
+ * program will accept and produce wrong results. 
+ * change the code to use enums which avoids String input 
+ * then print the status details. 
+ * @author srinivsi 
+ */
+public class Status {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)
+   {
+      Scanner in = new Scanner(System.in);
+
+      System.out.println("Available status codes:");
+      for (StatusUser s : StatusUser.values()) {
+         System.out.println(s + " - " + s.getMessage());
+      }
+
+      System.out.println("\nSelect status number (0 for ZERO, 1 for ONE, 2 for TWO, etc.): ");
+      int index = in.nextInt();
+
+      if (index >= 0 && index < StatusUser.values().length) {
+        StatusUser selected = StatusUser.values()[index];
+           StausUser user = new StausUser();
+           user.statusDetail(selected);
+        } else {
+           System.out.println("Invalid selection!");
+   }
+}
+    
